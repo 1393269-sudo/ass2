@@ -1,4 +1,4 @@
-package org.example;
+package Models;
 
 public class NodeModel {
     private int ID;
