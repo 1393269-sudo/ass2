@@ -3,6 +3,7 @@ package org.example;
 public class NodeModel {
     private int ID;
     private String Name;
+    private String Description;
 
     public int getID() {
         return ID;
@@ -22,5 +23,11 @@ public class NodeModel {
 
     public void setName(String Name) {
         this.Name = Name;
+    }
+    public String getDescription() {
+        return Description;
+    }
+    public void setDescription(String Description) {
+        this.Description = Description;
     }
 }
