@@ -14,6 +14,7 @@ public class menu {
         while (true){
             System.out.println("1. Add Node");
             System.out.println("2. Test count node");
+            System.out.println("3. Search Node");
 
             String option = sc.nextLine();
 
@@ -34,6 +35,22 @@ public class menu {
                     break;
                     default:
                         System.out.println("Invalid option");
+
+                case "3":
+                    System.out.println("Enter node name");
+                    String searchName = sc.nextLine();
+
+                    Resource found = store.searchByName(searchName);
+
+                    if (found != null) {
+                        System.out.println("found");
+                        System.out.println("Name: " + found.getName());
+                        System.out.println("Description: " + found.getDescription());
+                    }
+                    else {
+                        System.out.println("Please enter a valid node name");
+                    }
+                    break;
             }
         }
     }
