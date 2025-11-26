@@ -15,4 +15,13 @@ public class store {
     public void countResources() {
         System.out.println("Number of Nodes: " + nodes.size());
     }
+
+    public Resource searchByName(String name) {
+        for (Resource node : nodes) {
+            if (node.getName().equals(name)) {
+                return node;
+            }
+        }
+        return null;
+    }
 }
