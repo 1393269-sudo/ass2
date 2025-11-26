@@ -16,6 +16,16 @@ public class store {
         System.out.println("Number of Nodes: " + nodes.size());
     }
 
+    public void displayAllResources() {
+        if (nodes.isEmpty()){
+            System.out.println("Nothing to Display");
+            return;
+        }
+        for (Resource node : nodes){
+            System.out.println("\n" + node.getName());
+        }
+    }
+
     public Resource searchByName(String name) {
         for (Resource node : nodes) {
             if (node.getName().equals(name)) {
@@ -23,5 +33,10 @@ public class store {
             }
         }
         return null;
+    }
+    public void updateNode(Resource node, String newName, String newDescription) {
+        node.setName(newName);
+        node.setDescription(newDescription);
+        nodes.remove(node);
     }
 }

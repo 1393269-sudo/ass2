@@ -13,8 +13,9 @@ public class menu {
 
         while (true){
             System.out.println("1. Add Node");
-            System.out.println("2. Test count node");
+            System.out.println("2. List of Nodes");
             System.out.println("3. Search Node");
+            System.out.println("4. Edit Node");
 
             String option = sc.nextLine();
 
@@ -32,9 +33,12 @@ public class menu {
 
                 case "2":
                     store.countResources();
+                    store.displayAllResources();
                     break;
-                    default:
-                        System.out.println("Invalid option");
+
+
+                   // default:
+                     //   System.out.println("Invalid option");
 
                 case "3":
                     System.out.println("Enter node name");
@@ -51,6 +55,36 @@ public class menu {
                         System.out.println("Please enter a valid node name");
                     }
                     break;
+
+                    case "4":
+                        System.out.println("Enter node name");
+                        String oldName = sc.nextLine();
+
+                        Resource nodeEdit = store.searchByName(oldName);
+
+                        if (nodeEdit == null) {
+                            System.out.println("node not found");
+                            break;
+                        }
+                        System.out.println("current name:" + nodeEdit.getName());
+                        System.out.println("current description:" + nodeEdit.getDescription());
+
+                        System.out.println("Enter new name or press enter to continue");
+                        String newName = sc.nextLine();
+                        if (newName.isEmpty()) newName = nodeEdit.getName();
+
+                        System.out.println("Enter new description:" + nodeEdit.getDescription());
+                        String newDescription = sc.nextLine();
+                        if (newDescription.isEmpty()) newDescription = nodeEdit.getDescription();
+
+                        nodeEdit.setName(newName);
+                        nodeEdit.setDescription(newDescription);
+
+                        System.out.println("Update Successfull");
+
+
+
+
             }
         }
     }
