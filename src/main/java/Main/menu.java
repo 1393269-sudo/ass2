@@ -23,7 +23,11 @@ public class menu {
                     String name = sc.nextLine();
 
                     System.out.println("Enter Description");
-                    String description = sc.next();
+                    String description = sc.nextLine();
+
+                    Resource newNode = new Resource (name, description);
+                    store.addResource(newNode);
+                    break;
 
                 case "2":
                     store.countResources();
