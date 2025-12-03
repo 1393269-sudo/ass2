@@ -3,8 +3,12 @@ package repository;
 import Models.NodeModel;
 import Models.Resource;
 import Repository.store;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.io.PrintStream;
 
 public class StoreTest {
 
@@ -37,4 +41,15 @@ public class StoreTest {
 
         Assertions.assertThrows(Exception.class, () -> s.addResource(null));
     }
+
+//@Test
+//public void test_nothing_to_display() {
+    //Initialise data
+  //  store s = new store();
+
+   // store.displayAllResources();
+
+   // String expected = "Nothing to display" + System.lineSeparator();
+   // Assertions.assertEquals(expected, outContent.toString());
 }
+
