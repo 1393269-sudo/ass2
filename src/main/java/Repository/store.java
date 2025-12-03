@@ -12,8 +12,9 @@ public class store {
         nodes.add(node);
     }
 
-    public void countResources() {
+    public int countResources() {
         System.out.println("Number of Nodes: " + nodes.size());
+        return nodes.size();
     }
 
     public void displayAllResources() {
