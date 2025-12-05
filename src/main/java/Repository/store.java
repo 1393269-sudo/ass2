@@ -1,5 +1,6 @@
 package Repository;
 
+import Models.Link;
 import Models.Resource;
 import java.util.List;
 import java.util.ArrayList;
@@ -39,5 +40,20 @@ public class store {
         node.setName(newName);
         node.setDescription(newDescription);
         nodes.remove(node);
+    }
+    // linking nodes
+    private List<String> links = new ArrayList<>();
+
+    public void addLink(Resource from, Resource to, Link type) {
+        String linkText = from.getName() + " -> " + type + " -> " + to.getName();
+    }
+    public void dispalyLink(){
+        if (links.isEmpty()){
+            System.out.println("No links");
+            return;
+        }
+        for (String link : links){
+            System.out.println("Link: " + link);
+        }
     }
 }

@@ -1,6 +1,7 @@
 package Main;
 
-import  Models.Resource;
+import Models.Link;
+import Models.Resource;
 import Repository.store;
 
 import java.util.Scanner;
@@ -16,6 +17,7 @@ public class menu {
             System.out.println("2. List of Nodes");
             System.out.println("3. Search Node");
             System.out.println("4. Edit Node");
+            System.out.println("5. Link nodes");
 
             String option = sc.nextLine();
 
@@ -82,8 +84,39 @@ public class menu {
 
                         System.out.println("Update Successfull");
 
+                case "5":
+                    System.out.println("Enter node name");
+                    String fromName = sc.nextLine();
+                    Resource fromNode = store.searchByName(fromName);
+                    if (fromNode == null) {
+                        System.out.println("node not found");
+                        break;
+                    }
+                    System.out.println("Enter second node name");
+                    String toName = sc.nextLine();
+                    Resource toNode = store.searchByName(toName);
+                    if (toNode == null) {
+                        System.out.println("node not found");
+                        break;
+                    }
+                    System.out.println("Select link type");
+                    for (Link l : Link.values()) {
+                    System.out.println("" + l);
+                    }
 
+                    String type = sc.nextLine();
 
+                    Link chosenType;
+                    try {
+                        chosenType = Link.valueOf(type);
+                    }
+                    catch (Exception e){
+                        System.out.println("Please enter a valid link type");
+                        break;
+                    }
+
+                    store.addLink(fromNode, toNode, chosenType);
+                    System.out.println("Link Successfull");
 
             }
         }
