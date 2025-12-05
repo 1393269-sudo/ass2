@@ -133,6 +133,22 @@ public class StoreTest {
 
         Assertions.assertEquals(3, s.countResources());
     }
+    //testing display of nodes
+    @Test
+    public void test_display_all_resources() {
+        store s = new store();
+
+        s.addResource(new Resource("name1", "description1"));
+        s.addResource(new Resource("name2", "description2"));
+
+        s.displayAllResources();
+
+        String output = outContent.toString();
+
+        Assertions.assertTrue(output.contains("name1"));
+        Assertions.assertTrue(output.contains("name2"));
+
+    }
 
 
 }
